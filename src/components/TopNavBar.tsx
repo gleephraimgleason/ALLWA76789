@@ -145,8 +145,15 @@ export default function TopNavBar({ className, onLogout }: TopNavBarProps) {
   const [supportPriority, setSupportPriority] = useState("normal");
   const [sendingSupport, setSendingSupport] = useState(false);
   const [showAccountStatus, setShowAccountStatus] = useState(false);
+  const [accountStatus, setAccountStatus] = useState(null);
+  const [statusNotifications, setStatusNotifications] = useState([]);
 
   const navigate = useNavigate();
+  
+  // Check if account is verified
+  const isAccountVerified = profile?.is_verified || false;
+  const verificationStatus = profile?.verification_status || "not_submitted";
+
   // Get notifications from database
   const databaseNotifications = notifications || [];
 
@@ -200,17 +207,17 @@ export default function TopNavBar({ className, onLogout }: TopNavBarProps) {
     const loadAccountStatus = async () => {
       if (user?.id) {
         try {
-          const statusResult = await getAccountStatus();
-          if (statusResult.data && !statusResult.error) {
-            setAccountStatus(statusResult.data);
-          }
-
-          const notificationsResult = await getActiveStatusNotifications();
-          if (notificationsResult.data && !notificationsResult.error) {
-            setStatusNotifications(notificationsResult.data);
-          }
+          // Note: These functions would need to be implemented in the database hook
+          // For now, we'll just log the attempt
+          console.log("Loading account status for user:", user.id);
         } catch (error) {
-          console.error("Error loading account status:
+          console.error("Error loading account status:", error);
+        }
+      }
+    };
+
+    loadAccountStatus();
+  }, [user?.id]);
 
   const confirmLogout = () => {
     setShowLogoutDialog(false);

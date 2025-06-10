@@ -4,6 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  VITE_SUPABASE_URL = "https://your-project-ref.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "your-anon-key-here"
 
 [[redirects]]
   from = "/*"
@@ -12,9 +14,15 @@
 
 [context.production.environment]
   VITE_TEMPO = "false"
+  VITE_SUPABASE_URL = "https://your-project-ref.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "your-anon-key-here"
 
 [context.deploy-preview.environment]
   VITE_TEMPO = "false"
+  VITE_SUPABASE_URL = "https://your-project-ref.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "your-anon-key-here"
 
 [context.branch-deploy.environment]
   VITE_TEMPO = "false"
+  VITE_SUPABASE_URL = "https://your-project-ref.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "your-anon-key-here"
