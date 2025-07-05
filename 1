@@ -1,5 +1,6 @@
-sudo apt install ./google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb && sudo apt -f install
-sudo dpkg -i google-chrome-stable_current_amd64.deb && sudo apt -f install
-google-chrome &
-google-chrome-stable &
+sudo apt update
+sudo apt install fonts-arabeyes fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-hinted fonts-dejavu*
+sudo apt install language-pack-ar
+sudo dpkg-reconfigure locales
+ar_DZ.UTF-8
+ar_EG.UTF-8
