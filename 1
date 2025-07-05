@@ -4,3 +4,13 @@ sudo apt install language-pack-ar
 sudo dpkg-reconfigure locales
 ar_DZ.UTF-8
 ar_EG.UTF-8
+
+
+
+sudo apt remove google-chrome-stable
+sudo apt --fix-broken install
+sudo apt update && sudo apt upgrade -y
+sudo apt install fonts-arabeyes fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-hinted fonts-dejavu*
+sudo apt install language-pack-ar
+sudo dpkg-reconfigure locales
+sudo update-locale LANG=ar_DZ.UTF-8
